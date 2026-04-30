@@ -2,11 +2,13 @@ package com.luisfernandes.workshopmongo.services;
 
 import com.luisfernandes.workshopmongo.domain.User;
 import com.luisfernandes.workshopmongo.repository.UserRepository;
+import com.luisfernandes.workshopmongo.services.exception.ObjectNotFoundException;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -21,5 +23,9 @@ public class UserService {
     public void debug() {
         System.out.println("CLASS: " + userRepository.getClass());
         System.out.println("COUNT: " + userRepository.count());
+    }
+    public User findById(String id){
+        Optional<User> user = userRepository.findById(id);
+        return user.orElseThrow(() -> new ObjectNotFoundException("Usuario não existe"));
     }
 }
