@@ -14,6 +14,7 @@ public class UserService {
     UserRepository userRepository;
     public List<User> findAll(){
         List<User> userList = userRepository.findAll();
+
         return userList;
     }
     @PostConstruct

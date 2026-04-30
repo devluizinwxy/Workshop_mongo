@@ -1,25 +1,69 @@
-HELP.md
+############################################
+# SPRING BOOT / MAVEN
+############################################
+
 target/
-.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+*.jar
+*.war
+*.ear
+
+############################################
+# CONFIGURAÇÕES SENSÍVEIS (CRÍTICO)
+############################################
+
+application.properties
+application.yml
+application-dev.properties
+application-prod.properties
+
+.env
+
+############################################
+# LOGS
+############################################
+
+*.log
+logs/
+log/
+
+############################################
+# JAVA
+############################################
+
+*.class
+
+############################################
+# IDE - INTELLIJ IDEA
+############################################
+
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+############################################
+# SPRING / STS
+############################################
+
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
-.sts4-cache
+.sts4-cache/
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+############################################
+# NETBEANS
+############################################
 
-### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -29,5 +73,36 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
+############################################
+# VSCODE
+############################################
+
 .vscode/
+
+############################################
+# SISTEMA OPERACIONAL
+############################################
+
+.DS_Store
+Thumbs.db
+
+############################################
+# CACHE / TEMP
+############################################
+
+*.tmp
+*.bak
+*.swp
+
+############################################
+# DEPENDÊNCIAS OPCIONAIS (casos específicos)
+############################################
+
+node_modules/   # caso tenha front junto
+dist/
+
+############################################
+# DOCKER (se usar)
+############################################
+
+docker-compose.override.yml
