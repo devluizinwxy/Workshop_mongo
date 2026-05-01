@@ -1,6 +1,8 @@
 package com.luisfernandes.workshopmongo.services;
 
 import com.luisfernandes.workshopmongo.domain.User;
+import com.luisfernandes.workshopmongo.dto.UserDto;
+import com.luisfernandes.workshopmongo.dto.UserDtoRequest;
 import com.luisfernandes.workshopmongo.repository.UserRepository;
 import com.luisfernandes.workshopmongo.services.exception.ObjectNotFoundException;
 import jakarta.annotation.PostConstruct;
@@ -28,4 +30,13 @@ public class UserService {
         Optional<User> user = userRepository.findById(id);
         return user.orElseThrow(() -> new ObjectNotFoundException("Usuario não existe"));
     }
+    public User insert(UserDtoRequest dto){
+     User user = fromDto(dto);
+     return userRepository.insert(user);
+    }
+    public User fromDto(UserDtoRequest dto){
+        User user = new User(null,dto.getName(),dto.getEmail());
+        return user;
+    }
+
 }
