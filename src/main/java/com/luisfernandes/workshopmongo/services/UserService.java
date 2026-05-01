@@ -44,4 +44,16 @@ public class UserService {
         }
       userRepository.deleteById(id);
   }
+  public User update(UserDto userDto){
+      User entity = userRepository.findById(userDto.getId())
+              .orElseThrow(() -> new ObjectNotFoundException("Usuário não encontrado"));
+      updateData(entity,userDto);
+      return userRepository.save(entity);
+
+  }
+  public void updateData(User user, UserDto userDto){
+        user.setName(userDto.getName());
+        user.setEmail(userDto.getEmail());
+
+  }
 }

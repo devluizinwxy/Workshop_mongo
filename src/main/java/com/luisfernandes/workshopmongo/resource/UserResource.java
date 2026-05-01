@@ -42,4 +42,9 @@ public class UserResource {
         userService.delete(id);
         return ResponseEntity.noContent().build();
     }
+    @PutMapping
+    public ResponseEntity<User> update(UserDto dto){
+        User user = userService.update(dto);
+        return ResponseEntity.ok(user);
+    }
 }
