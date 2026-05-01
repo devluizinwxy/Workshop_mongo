@@ -37,4 +37,9 @@ public class UserResource {
         User user = userService.insert(userDtoRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id){
+        userService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

@@ -38,5 +38,10 @@ public class UserService {
         User user = new User(null,dto.getName(),dto.getEmail());
         return user;
     }
-
+  public void delete(String id){
+        if (!userRepository.existsById(id)){
+            throw new ObjectNotFoundException("User não encontrado");
+        }
+      userRepository.deleteById(id);
+  }
 }
